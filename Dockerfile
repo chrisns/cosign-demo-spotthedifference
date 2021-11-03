@@ -1,5 +1,4 @@
 FROM golang as builder
-ARG SIGNED
 ARG BUILDID
 COPY main.go .
 RUN go build -ldflags "-linkmode external -extldflags -static -X main.BuildID=${BUILDID}" -a main.go

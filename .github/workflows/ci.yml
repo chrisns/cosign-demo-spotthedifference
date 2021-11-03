@@ -35,9 +35,7 @@ jobs:
       - name: push
         uses: docker/build-push-action@v2.7.0
         with:
-          build-args: |
-            SIGNED=true
-            BUILDID=${{github.run_id}}.${{github.run_attempt}}
+          build-args: BUILDID=${{github.run_id}}.${{github.run_attempt}}-signed
           tags: ghcr.io/chrisns/cosign-demo-spotthedifference:signed-${{github.run_id}}.${{github.run_attempt}}
           push: true
 
